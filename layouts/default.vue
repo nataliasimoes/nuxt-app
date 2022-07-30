@@ -1,24 +1,34 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import { useTheme } from 'vuetify'
+import AppBar from '~~/components/layout/AppBar.vue';
+import NavigationDrawer from '~~/components/layout/NavigationDrawer.vue';
+const theme = useTheme();
+const toggleTheme = () => {
+  theme.global.name.value = theme.global.name.value === 'myCustomDarkTheme' ? 'light' : 'myCustomDarkTheme';
+  console.log(theme.global.name.value);
+  
+};
+const drawer = ref(true)
+
+</script>
 
 <template>
-  <v-card>
+  <v-app>
     <v-layout>
-      <v-navigation-drawer
-        floating
-        permanent
-      >
-        <v-list
-          density="compact"
-          nav
-        >
-          <v-list-item prepend-icon="mdi-view-dashboard" title="Home" value="home" to="/charts/lines"></v-list-item>
-          <v-list-item prepend-icon="mdi-forum" title="About" value="about" to="/about"></v-list-item>
-        </v-list>
-      </v-navigation-drawer>
-      <v-main><slot/></v-main>
-      
+
+      <navigation-drawer :drawer="drawer"></navigation-drawer>
+
+      <app-bar @toggle-theme="toggleTheme" @toggle-drawer="drawer = !drawer"></app-bar>
+
+      <v-main>
+        <slot/>
+      </v-main>
+
     </v-layout>
-  </v-card>
+
+  </v-app>
 </template>
 
-<style scoped></style>
+<style scoped>
+
+</style>

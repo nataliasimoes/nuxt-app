@@ -352,6 +352,11 @@
     "semver" "^7.3.5"
     "tar" "^6.1.11"
 
+"@mdi/font@^7.0.96":
+  "integrity" "sha512-rzlxTfR64hqY8yiBzDjmANfcd8rv+T5C0Yedv/TWk2QyAQYdc66e0kaN1ipmnYU3RukHRTRcBARHzzm+tIhL7w=="
+  "resolved" "https://registry.npmjs.org/@mdi/font/-/font-7.0.96.tgz"
+  "version" "7.0.96"
+
 "@netlify/functions@^1.0.0":
   "integrity" "sha512-7fnJv3vr8uyyyOYPChwoec6MjzsCw1CoRUO2DhQ1BD6bOyJRlD4DUaOOGlMILB2LCT8P24p5LexEGx8AJb7xdA=="
   "resolved" "https://registry.npmjs.org/@netlify/functions/-/functions-1.0.0.tgz"
@@ -1602,9 +1607,9 @@
   dependencies:
     "prr" "~1.0.1"
 
-"esbuild-linux-64@0.14.49":
-  "integrity" "sha512-hYmzRIDzFfLrB5c1SknkxzM8LdEUOusp6M2TnuQZJLRtxTgyPnZZVtyMeCLki0wKgYPXkFsAVhi8vzo2mBNeTg=="
-  "resolved" "https://registry.npmjs.org/esbuild-linux-64/-/esbuild-linux-64-0.14.49.tgz"
+"esbuild-windows-64@0.14.49":
+  "integrity" "sha512-+Cme7Ongv0UIUTniPqfTX6mJ8Deo7VXw9xN0yJEN1lQMHDppTNmKwAM3oGbD/Vqff+07K2gN0WfNkMohmG+dVw=="
+  "resolved" "https://registry.npmjs.org/esbuild-windows-64/-/esbuild-windows-64-0.14.49.tgz"
   "version" "0.14.49"
 
 "esbuild@^0.14.27", "esbuild@^0.14.49", "esbuild@>=0.13":
