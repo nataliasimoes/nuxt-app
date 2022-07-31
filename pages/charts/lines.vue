@@ -112,15 +112,9 @@ const chartOptions: ComputedRef<ApexOptions> = computed(() => ({
     size: 1,
   },
   xaxis: {
-    categories: ["Seg", "ter", "qua", "qui", "sex", "sab", "dom"],
-    title: {
-      text: "Month",
-    },
+    categories: ["Seg", "ter", "qua", "qui", "sex", "sab", "dom"]
   },
   yaxis: {
-    title: {
-      text: "Temperature",
-    },
     min: 1,
     max: 40,
   },
