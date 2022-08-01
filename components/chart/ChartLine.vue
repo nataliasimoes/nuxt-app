@@ -17,7 +17,6 @@ setTimeout(activatedComponent, 100);
 <template>
   <div id="chart" v-if="componentIsActive">
     <apexchart
-      class="pt-3"
       type="line"
       height="350"
       :options="props.options"

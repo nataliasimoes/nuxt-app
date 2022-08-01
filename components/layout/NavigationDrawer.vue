@@ -16,7 +16,7 @@ const props = defineProps<{ drawer: boolean }>();
         title="Dashboard"
         value="home"
         nuxt
-        to="/charts/lines"
+        to="/charts/dashboard"
         custom
       >
       </v-list-item>
