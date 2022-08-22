@@ -12,7 +12,7 @@ const props = defineProps<{ drawer: boolean }>();
       ></v-list-item>
       <v-divider></v-divider>
       <v-list-item
-        prepend-icon="mdi-home-variant-outline"
+        prepend-icon="mdi-view-dashboard-outline"
         title="Dashboard"
         value="home"
         nuxt
@@ -22,8 +22,8 @@ const props = defineProps<{ drawer: boolean }>();
       </v-list-item>
       <v-list-item
         theme="dark"
-        prepend-icon="mdi-account-group-outline"
-        title="Team"
+        prepend-icon="mdi-office-building-outline"
+        title="Empreendimentos"
         value="about"
         nuxt
         to="/about"
