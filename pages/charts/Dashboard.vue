@@ -7,6 +7,11 @@ import { useTheme } from "vuetify";
 import moment from "moment-timezone";
 import CardInfo from "../../components/layout/cardInfo.vue";
 
+/* Head */
+useHead({
+  title: 'Tickets Dashboard'
+})
+
 /* theme */
 
 const theme = useTheme();
@@ -25,6 +30,11 @@ const background: ComputedRef<string> = computed(() => {
 let endDate = moment()
   .tz("America/Sao_Paulo")
   .subtract(7, "days")
+  .format("YYYY-MM-DD");
+
+let endDateLastThreeMonths = moment()
+  .tz("America/Sao_Paulo")
+  .subtract(3, "months")
   .format("YYYY-MM-DD");
 
 function getLastSevenDays() {
@@ -56,9 +66,24 @@ const paramsResolved = {
       status: "resolvido",
       doneDate: `>${endDate}`,
 }
+const paramsResolvedThreeMonths = {
+      status: "resolvido",
+      doneDate: `>${endDateLastThreeMonths}`,
+      take: '100'
+}
 
 const {data: ticketsResolved} = await useOctadesk<any[]>(`${baseUrlSearch}?${new URLSearchParams(paramsResolved)}`)
+// const {data: ticketsResolvedLastThreeMonths} = await useOctadesk<any[]>(`${baseUrlSearch}?${new URLSearchParams(paramsResolvedThreeMonths)}`)
 
+// const averageResolved = computed(() => {
+//   const value = Math.round(
+//     ticketsResolvedLastThreeMonths.value.length / 90
+//   )
+//   return value.toString()
+// });
+
+// console.log(averageResolved.value);
+// console.log(ticketsResolvedLastThreeMonths.value.length);
 
 const ticketResolvedByDay = computed(() => {
   return ticketsResolved.value.reduce((acc: any[], ticket) => {
@@ -76,6 +101,7 @@ const ticketResolvedByDay = computed(() => {
 const paramsOpeneds = {
       status: "novo",
       createdDate: `>${endDate}`,
+      take: '100'
 }
 
 const {data: ticketsOpened} = await useOctadesk<any[]>(`${baseUrlSearch}?${new URLSearchParams(paramsOpeneds)}`)
@@ -115,7 +141,7 @@ const resolved: ApexAxisChartSeries | ApexNonAxisChartSeries = [
   },
   {
     name: "Média dos últimos 3 meses",
-    data: [],
+    data: []
   },
 ];
 
@@ -370,15 +396,15 @@ const {data: ticketsByListCount} = await useOctadesk<any[]>(`default-lists`)
 <template>
   <v-container>
     <v-row justify="end">
+      <v-col
+        cols="12"
+        sm="3"
+        v-for="ticket in ticketsByListCount.slice(0, 4)"
+        :key="ticket"
+      >
+        <CardInfo :title="ticket.name" :count="ticket.count"></CardInfo>
+      </v-col>
       <client-only>
-        <v-col
-          cols="12"
-          sm="3"
-          v-for="ticket in ticketsByListCount.slice(0, 4)"
-          :key="ticket"
-        >
-          <CardInfo :title="ticket.name" :count="ticket.count"></CardInfo>
-        </v-col>
         <v-col cols="12" sm="6" md="3">
           <v-select
             class="height-select"

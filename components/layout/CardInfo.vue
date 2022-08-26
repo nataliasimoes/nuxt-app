@@ -27,6 +27,15 @@ const props = defineProps<{
         >
           {{props.count}}
         </v-col>
+        <v-spacer></v-spacer>
+        <!-- <v-col>
+            <v-icon
+      x-large
+      color="red"
+    >
+      mdi-domain
+    </v-icon>
+        </v-col> -->
       </v-row>
     </v-card-text>
 
